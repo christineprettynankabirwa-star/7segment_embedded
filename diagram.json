@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Christine nankabirwa",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -48,
+      "left": 283.24,
+      "attrs": { "builder": "esp-idf" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": 52.98,
+      "left": 91.48,
+      "attrs": { "common": "cathode" }
+    },
+    { "type": "wokwi-74hc595", "id": "sr1", "top": -78, "left": 130.24, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "sr1:VCC", "esp:3V3", "red", [] ],
+    [ "sr1:MR", "esp:3V3", "red", [] ],
+    [ "sr1:GND", "esp:GND.1", "black", [] ],
+    [ "sr1:OE", "esp:GND.1", "black", [] ],
+    [ "esp:23", "sr1:DS", "blue", [] ],
+    [ "esp:18", "sr1:SHCP", "orange", [] ],
+    [ "esp:21", "sr1:STCP", "green", [] ],
+    [ "sr1:Q0", "sevseg1:A", "green", [] ],
+    [ "sr1:Q1", "sevseg1:B", "green", [] ],
+    [ "sr1:Q2", "sevseg1:C", "green", [] ],
+    [ "sr1:Q3", "sevseg1:D", "green", [] ],
+    [ "sr1:Q4", "sevseg1:E", "green", [] ],
+    [ "sr1:Q5", "sevseg1:F", "green", [] ],
+    [ "sr1:Q6", "sevseg1:G", "green", [] ],
+    [ "sr1:Q7", "sevseg1:DP", "green", [] ],
+    [ "sevseg1:COM.1", "esp:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
